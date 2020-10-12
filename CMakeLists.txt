@@ -8,7 +8,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # QtCreator supports the following variables for Android, which are identical to qmake Android variables.
@@ -25,20 +25,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #endif()
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
-
+FILE(GLOB sources *.cpp)
+FILE(GLOB headers *.h)
 if(ANDROID)
   add_library(AjedrezQT SHARED
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+
+    ${sources}
+    ${headers}
   )
 else()
   add_executable(AjedrezQT
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+
+    ${sources}
+    ${headers}
   )
 endif()
 
