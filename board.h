@@ -2,13 +2,17 @@
 #define BOARD_H
 #include <QGraphicsRectItem>
 #include "box.h"
+#include "piece.h"
 class board
 {
 
 public:
     board();
     void drawBoxes(int x, int y);
-
+    void addPiece();
+private:
+    QList <Piece *> white;
+    QList <Piece *> black;
 
 
 };

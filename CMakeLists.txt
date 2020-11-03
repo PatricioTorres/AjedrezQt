@@ -27,17 +27,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 FILE(GLOB sources *.cpp)
 FILE(GLOB headers *.h)
+FILE(GLOB img *.qrc)
 if(ANDROID)
   add_library(AjedrezQT SHARED
     main.cpp
-
     ${sources}
     ${headers}
+    ${img}
   )
 else()
   add_executable(AjedrezQT
     main.cpp
-
+    ${img}
     ${sources}
     ${headers}
   )

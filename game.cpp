@@ -12,7 +12,7 @@ game::game(QWidget *parent ):QGraphicsView(parent){
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::black);
     setBackgroundBrush(brush);
-    //pieceToMove = NULL;
+    pieceToMove = NULL;
     turnDisplay = new QGraphicsTextItem();
     turnDisplay->setPos(width()/2-100,10);
     turnDisplay->setZValue(1);
@@ -28,6 +28,7 @@ game::game(QWidget *parent ):QGraphicsView(parent){
     check->setFont(QFont("",18));
     check->setPlainText("CHECK!");
     check->setVisible(false);
+    setTurn("WHITE");
 
 }
 void game::drawBoard()
@@ -54,5 +55,23 @@ void game::addItem(QGraphicsItem *item)
 void game::displayMainMenu()
 {
     drawBoard();
+
+}
+QString game::getTurn()
+{
+    return turn;
 }
 
+void game::setTurn(QString value)
+{
+    turn = value;
+}
+
+void game::changeTurn()
+{
+    if(getTurn() == "WHITE")
+        setTurn("BLACK");
+    else
+        setTurn("WHITE");
+    turnDisplay->setPlainText("Turn : " + getTurn());
+}

@@ -2,8 +2,9 @@
 #define BOX_H
 #include <QGraphicsRectItem>
 #include <QBrush>
+#include "piece.h"
 
-
+class Piece;
 class box:public QGraphicsRectItem
 {
 public:
@@ -12,9 +13,22 @@ public:
     int colLoc;
     void setOriginalColor(QColor value);
     void setColor(QColor color);
+    void resetOriginalColor();
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    Piece * currentPiece;
+    QString getPieceColor() ;
+    ~box();
+    void setPieceColor(QString value);
+    bool getHasPiece();
+    void setHasPiece(bool value,Piece *piece = 0);
+    void placePiece(Piece *piece);
+
 private:
     QBrush brush;
     QColor originalColor;
+    QString PieceColor;
+    bool hasPiece;
+
 };
 
 #endif // BOX_H

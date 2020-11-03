@@ -6,6 +6,7 @@
 #include <QGraphicsTextItem>
 #include "box.h"
 #include <board.h>
+#include "piece.h"
 class game:public QGraphicsView
 {
     Q_OBJECT
@@ -17,10 +18,18 @@ public:
     void drawBoard();
     void drawDeadHolder(int x, int y, QColor color);
     void addItem(QGraphicsItem *item);
+    QString getTurn() ;
+    void setTurn( QString value);
+    void changeTurn();
+    Piece *pieceToMove;
+    QList <Piece *> alivePiece;
+    board *chess;
+
 private:
     QGraphicsScene *Scene;
     QGraphicsTextItem * turnDisplay;
-    board *chess;
+
+    QString turn;
     QGraphicsRectItem * deadHolder;
 
 };
