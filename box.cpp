@@ -72,7 +72,7 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
             juego->pieceToMove = NULL;
 
-            //juego->changeTurn();
+            juego->changeTurn();
             //checkForCheck();
         }
 

@@ -1,6 +1,16 @@
 <RCC>
     <qresource prefix="/">
-        <file>pawn.png</file>
-        <file>pawn1.png</file>
+        <file>pawnB.png</file>
+        <file>pawnW.png</file>
+        <file>rookW.png</file>
+        <file>kingW.png</file>
+        <file>queenW.png</file>
+        <file>bishopW.png</file>
+        <file>horseW.png</file>
+        <file>kingB.png</file>
+        <file>queenB.png</file>
+        <file>bishopB.png</file>
+        <file>horseB.png</file>
+        <file>rookB.png</file>
     </qresource>
 </RCC>

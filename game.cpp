@@ -2,9 +2,9 @@
 
 game::game(QWidget *parent ):QGraphicsView(parent){
     Scene = new QGraphicsScene();
-    Scene->setSceneRect(0,0,1400,800);
+    Scene->setSceneRect(0,0,1400,1000);
 
-    setFixedSize(1400,800);
+    setFixedSize(1400,970);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setScene(Scene);
@@ -55,6 +55,7 @@ void game::addItem(QGraphicsItem *item)
 void game::displayMainMenu()
 {
     drawBoard();
+    chess->addPiece();
 
 }
 QString game::getTurn()

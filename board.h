@@ -10,6 +10,8 @@ public:
     board();
     void drawBoxes(int x, int y);
     void addPiece();
+    void setUpWhite();
+    void setUpBlack();
 private:
     QList <Piece *> white;
     QList <Piece *> black;

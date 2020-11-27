@@ -13,9 +13,9 @@ Pawn::Pawn(QString team,QGraphicsItem *parent):Piece(team,parent)
 void Pawn::setImage()
 {
     if(Team == "WHITE")
-        setPixmap(QPixmap(":/pawn.png"));
+        setPixmap(QPixmap(":/pawnW.png"));
     else
-        setPixmap(QPixmap(":/pawn1.png"));
+        setPixmap(QPixmap(":/pawnB.png"));
 }
 
 void Pawn::moves()
@@ -51,14 +51,14 @@ void Pawn::moves()
         }
         if(col < 7 && row <  7 && juego->collection[row+1][col+1]->getPieceColor() == "WHITE") {//right
             location.append(juego->collection[row+1][col+1]);
-            //boxSetting(location.last());
+            boxSetting(location.last());
         }
         if(row<7 && (!juego->collection[row+1][col]->getHasPiece())) {
             location.append(juego->collection[row+1][col]);
             boxSetting(location.last());
             if(firstMove && !juego->collection[row+2][col]->getHasPiece()){
                 location.append(juego->collection[row+2][col]);
-                //boxSetting(location.last());
+                boxSetting(location.last());
             }
 
         }

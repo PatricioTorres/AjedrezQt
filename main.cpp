@@ -10,7 +10,5 @@ int main(int argc, char *argv[])
     juego = new game();
     juego->show();
     juego->displayMainMenu();
-
-    juego->chess->addPiece();
     return a.exec();
 }
