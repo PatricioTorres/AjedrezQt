@@ -25,13 +25,14 @@ public:
     bool firstMove;
     bool boxSetting(box *box);
     box *getCurrentBox() ;
+    QString getType();
 
 protected:
     box *currentBox;
     QString Team;
     bool isPlaced;
     QList <box *> location;
-
+    QString type;
 
 };
 

@@ -5,6 +5,7 @@ extern game * juego;
 Rook::Rook(QString team,QGraphicsItem *parent):Piece(team,parent)
 {
     setImage();
+    type = "T";
 }
 
 void Rook::setImage()

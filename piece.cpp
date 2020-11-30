@@ -29,7 +29,6 @@ void Piece::mousePressEvent(QGraphicsSceneMouseEvent *event)
         return;
 
     if(!juego->pieceToMove){
-
         juego->pieceToMove = this;
         juego->pieceToMove->getBox()->setColor(Qt::red);
         juego->pieceToMove->moves();
@@ -57,6 +56,10 @@ box *Piece::getBox()
 QString Piece::getTeam()
 {
     return Team;
+}
+QString Piece::getType()
+{
+    return type;
 }
 QList<box *> Piece::moveLocation()
 {

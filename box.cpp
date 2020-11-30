@@ -1,5 +1,6 @@
 #include "box.h"
 #include "game.h"
+#include <iostream>
 
 extern game *juego;
 box::box(QGraphicsItem *parent):QGraphicsRectItem(parent)
@@ -57,18 +58,18 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
              juego->pieceToMove->color();
 
              juego->pieceToMove->firstMove = false;
-
+            bool capture = false;
             if(this->getHasPiece()){
                 this->currentPiece->setIsPlaced(false);
                 this->currentPiece->setCurrentBox(NULL);
                 //juego->placeInDeadPlace(this->currentPiece);
-
+                capture = true;
             }
 
             juego->pieceToMove->getCurrentBox()->setHasPiece(false);
             juego->pieceToMove->getCurrentBox()->currentPiece = NULL;
             juego->pieceToMove->getCurrentBox()->resetOriginalColor();
-            placePiece(juego->pieceToMove);
+            movedPiece(juego->pieceToMove, capture);
 
             juego->pieceToMove = NULL;
 
@@ -106,6 +107,29 @@ void box::placePiece(Piece *piece)
     piece->setCurrentBox(this);
     setHasPiece(true,piece);
     currentPiece = piece;
+}
+void box::movedPiece(Piece *piece, bool& capture)
+{
+    placePiece(piece);
+    if(piece->getType() != "P")
+    {
+        std::cout<<piece->getType().toStdString();
+    }
+    if(capture)
+    {
+        std::cout<<"x";
+    }
+    char col = colLoc + 97;
+    int row = 8 - rowLoc;
+    std::cout<<col<<row;
+    if(juego->getTurn() == "WHITE")
+    {
+        std::cout<<"\t";
+    }
+    else
+    {
+        std::cout<<std::endl;
+    }
 }
 void box::setHasPiece(bool value, Piece *piece)
 {

@@ -6,6 +6,7 @@ extern game * juego;
 horse::horse(QString team,QGraphicsItem *parent):Piece(team,parent)
 {
     setImage();
+    type = "C";
 }
 
 void horse::setImage()

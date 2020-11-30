@@ -2,6 +2,7 @@
 #define BOX_H
 #include <QGraphicsRectItem>
 #include <QBrush>
+#include <iostream>
 #include "piece.h"
 
 class Piece;
@@ -22,6 +23,7 @@ public:
     bool getHasPiece();
     void setHasPiece(bool value,Piece *piece = 0);
     void placePiece(Piece *piece);
+    void movedPiece(Piece *piece, bool& capture);
 
 private:
     QBrush brush;

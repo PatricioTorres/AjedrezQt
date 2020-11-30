@@ -5,6 +5,7 @@ extern game * juego;
 Queen::Queen(QString team,QGraphicsItem *parent):Piece(team,parent)
 {
     setImage();
+    type = "D";
 }
 void Queen::setImage()
 {

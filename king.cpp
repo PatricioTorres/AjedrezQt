@@ -5,6 +5,7 @@ extern game * juego;
 king::king(QString team,QGraphicsItem *parent):Piece(team,parent)
 {
     setImage();
+    type = "R";
 }
 
 void king::setImage()

@@ -5,6 +5,7 @@ extern game * juego;
 Bishop::Bishop(QString team,QGraphicsItem *parent):Piece(team,parent)
 {
     setImage();
+    type = "A";
 }
 void Bishop::setImage()
 {

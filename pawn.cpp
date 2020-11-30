@@ -8,6 +8,7 @@ Pawn::Pawn(QString team,QGraphicsItem *parent):Piece(team,parent)
 {
     setImage();
     firstMove = true;
+    type = "P";
 }
 
 void Pawn::setImage()
