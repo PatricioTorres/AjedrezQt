@@ -9,6 +9,7 @@ class Bishop:public Piece
 public:
     Bishop(QString team,QGraphicsItem *parent = 0);
     void setImage();
+    void resizeImage();
     void moves();
 
 };

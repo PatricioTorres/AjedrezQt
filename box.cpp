@@ -60,8 +60,9 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
              juego->pieceToMove->firstMove = false;
             bool capture = false;
             if(this->getHasPiece()){
-                this->currentPiece->setIsPlaced(false);
-                this->currentPiece->setCurrentBox(NULL);
+                //this->currentPiece->setIsPlaced(false);
+                this->currentPiece->resizeImage();
+                juego->captureBlack[0][0]->capturePiece(this->currentPiece);
                 //juego->placeInDeadPlace(this->currentPiece);
                 capture = true;
             }
@@ -107,6 +108,13 @@ void box::placePiece(Piece *piece)
     piece->setCurrentBox(this);
     setHasPiece(true,piece);
     currentPiece = piece;
+}
+void box::capturePiece(Piece *piece)
+{
+    piece->setPos(x()+30- piece->pixmap().width()/2  ,y()+30-piece->pixmap().width()/2);
+    piece->setCurrentBox(juego->captureBlack[0][0]);
+    juego->captureBlack[0][0]->setHasPiece(true,piece);
+    juego->captureBlack[0][0]->currentPiece = piece;
 }
 void box::movedPiece(Piece *piece, bool& capture)
 {

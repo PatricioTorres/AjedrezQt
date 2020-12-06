@@ -34,6 +34,31 @@ void board::drawBoxes(int x,int y)
     }
 
 }
+void board::drawCaptureBoxes(int x,int y, bool team)
+{
+    int SHIFT = 60;
+    for(int i = 0; i < 5; i++) {
+        for(int j = 0; j < 5; j++)
+        {
+            box *caja = new box();
+            if(team)
+                juego->captureBlack[i][j] = caja;
+            else
+                juego->captureWhite[i][j] = caja;
+            caja->rowLoc = i;
+            caja->colLoc = j;
+            caja->setPos(x+SHIFT*j,y+SHIFT*i);
+            if((i+j)%2==0)
+                caja->setOriginalColor(Qt::blue);
+            else
+                caja->setOriginalColor(Qt::red);
+            juego->addItem(caja);
+
+
+        }
+    }
+
+}
 
 
 

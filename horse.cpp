@@ -16,6 +16,13 @@ void horse::setImage()
     else
         setPixmap(QPixmap(":/horseB.png"));
 }
+void horse::resizeImage()
+{
+    if(Team == "WHITE")
+        setPixmap(QPixmap(":/horseW.png"));
+    else
+        setPixmap(QPixmap(":/horseB.png"));
+}
 
 void horse::moves()
 {

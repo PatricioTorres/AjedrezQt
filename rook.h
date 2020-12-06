@@ -8,6 +8,7 @@ class Rook:public Piece
 public:
     Rook(QString team,QGraphicsItem *parent = 0);
     void setImage();
+    void resizeImage();
     void moves();
 
 };

@@ -15,6 +15,13 @@ void king::setImage()
     else
         setPixmap(QPixmap(":/kingB.png"));
 }
+void king::resizeImage()
+{
+    if(Team== "WHITE")
+        setPixmap(QPixmap(":/kingW.png"));
+    else
+        setPixmap(QPixmap(":/kingB.png"));
+}
 
 void king::moves()
 {

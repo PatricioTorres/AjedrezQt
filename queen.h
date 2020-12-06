@@ -9,6 +9,7 @@ class Queen:public Piece
 public:
     Queen(QString team,QGraphicsItem *parent = 0);
     void setImage();
+    void resizeImage();
     void moves();
 
 };

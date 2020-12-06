@@ -9,6 +9,7 @@ class horse:public Piece
 public:
     horse(QString team,QGraphicsItem *parent = 0);
     void setImage();
+    void resizeImage();
     void moves();
 
 };

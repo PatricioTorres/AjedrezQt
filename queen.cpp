@@ -14,6 +14,13 @@ void Queen::setImage()
     else
         setPixmap(QPixmap(":/queenB.png"));
 }
+void Queen::resizeImage()
+{
+    if(Team == "WHITE")
+        setPixmap(QPixmap(":/queenW.png"));
+    else
+        setPixmap(QPixmap(":/queenB.png"));
+}
 void Queen::moves()
 {
     location.clear();

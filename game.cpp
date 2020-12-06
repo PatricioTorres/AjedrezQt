@@ -1,4 +1,5 @@
 #include "game.h"
+#include <iostream>
 
 game::game(QWidget *parent ):QGraphicsView(parent){
     Scene = new QGraphicsScene();
@@ -34,14 +35,20 @@ game::game(QWidget *parent ):QGraphicsView(parent){
 void game::drawBoard()
 {
     chess = new board();
-    drawDeadHolder(0,0,Qt::lightGray);
-    drawDeadHolder(1100,0,Qt::lightGray);
-    chess->drawBoxes(width()/2-400,50);
+    captureBox = new board();
+    drawDeadHolder(0,350,300, 200, Qt::lightGray);
+    drawDeadHolder(0,850,300, 50, Qt::lightGray);
+    drawDeadHolder(1100,0, 300, 900, Qt::lightGray);
+    chess->drawCaptureBoxes(0,50, true);
+    chess->drawCaptureBoxes(0,550, false);
+    chess->drawBoxes(width()/2 -400,50);
+    std::cout<<width()<<std::endl;
+
 
 }
-void game::drawDeadHolder(int x, int y,QColor color)
+void game::drawDeadHolder(int x, int y,int width, int height,QColor color)
 {
-    deadHolder = new QGraphicsRectItem(x,y,300,900);
+    deadHolder = new QGraphicsRectItem(x,y,width,height);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(color);

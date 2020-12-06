@@ -19,6 +19,14 @@ void Pawn::setImage()
         setPixmap(QPixmap(":/pawnB.png"));
 }
 
+void Pawn::resizeImage()
+{
+    if(Team == "WHITE")
+        setPixmap(QPixmap(":/pawnW.png"));
+    else
+        setPixmap(QPixmap(":/pawnBm.png"));
+}
+
 void Pawn::moves()
 {
     location.clear();

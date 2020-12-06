@@ -15,6 +15,13 @@ void Rook::setImage()
     else
         setPixmap(QPixmap(":/rookB.png"));
 }
+void Rook::resizeImage()
+{
+    if(Team == "WHITE")
+        setPixmap(QPixmap(":/rookW.png"));
+    else
+        setPixmap(QPixmap(":/rookB.png"));
+}
 
 void Rook::moves()
 {

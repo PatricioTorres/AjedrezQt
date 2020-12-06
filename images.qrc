@@ -12,5 +12,6 @@
         <file>bishopB.png</file>
         <file>horseB.png</file>
         <file>rookB.png</file>
+        <file>pawnBm.png</file>
     </qresource>
 </RCC>

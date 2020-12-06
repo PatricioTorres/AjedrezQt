@@ -17,6 +17,7 @@ public:
     QString getTeam();
     void setTeam(QString value);
     virtual void setImage() = 0;
+    virtual void resizeImage() = 0;
     bool getIsPlaced() ;
     void setIsPlaced(bool value);
     QList <box *> moveLocation();

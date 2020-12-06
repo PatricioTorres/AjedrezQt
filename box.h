@@ -16,13 +16,14 @@ public:
     void setColor(QColor color);
     void resetOriginalColor();
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    Piece * currentPiece;
+    Piece * currentPiece;//collection[0][0].currentPiece.getType() == "T"
     QString getPieceColor() ;
     ~box();
     void setPieceColor(QString value);
     bool getHasPiece();
     void setHasPiece(bool value,Piece *piece = 0);
     void placePiece(Piece *piece);
+    void capturePiece(Piece *piece);
     void movedPiece(Piece *piece, bool& capture);
 
 private:
