@@ -56,15 +56,24 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
                 return;
 
              juego->pieceToMove->color();
+            if(juego->pieceToMove->getBox()->getPieceColor()==  "WHITE" )
+
 
              juego->pieceToMove->firstMove = false;
             bool capture = false;
             if(this->getHasPiece()){
                 //this->currentPiece->setIsPlaced(false);
-                this->currentPiece->resizeImage();
-                juego->captureBlack[0][0]->capturePiece(this->currentPiece);
+
+               this->currentPiece->resizeImage();
+                //las blancas en 0,1
+               juego->captureBlack[0][0]->capturePiece(this->currentPiece);
+               //las negras se guardan en 0,2
+               if(juego->pieceToMove->getBox()->getPieceColor()==  "WHITE" ){
+
+               juego->captureBlack[0][2]->capturePiece(this->currentPiece);}
                 //juego->placeInDeadPlace(this->currentPiece);
                 capture = true;
+
             }
 
             juego->pieceToMove->getCurrentBox()->setHasPiece(false);
