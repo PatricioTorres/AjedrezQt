@@ -13,5 +13,16 @@
         <file>horseB.png</file>
         <file>rookB.png</file>
         <file>pawnBm.png</file>
+        <file>bishopBm.png</file>
+        <file>bishopWm.png</file>
+        <file>horseBm.png</file>
+        <file>horseWm.png</file>
+        <file>kingBm.png</file>
+        <file>kingWm.png</file>
+        <file>pawnWm.png</file>
+        <file>queenBm.png</file>
+        <file>queenWm.png</file>
+        <file>rookBm.png</file>
+        <file>rookWm.png</file>
     </qresource>
 </RCC>

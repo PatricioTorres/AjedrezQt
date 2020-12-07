@@ -17,9 +17,9 @@ void Bishop::setImage()
 void Bishop::resizeImage()
 {
     if(Team == "WHITE")
-        setPixmap(QPixmap(":/bishopW.png"));
+        setPixmap(QPixmap(":/bishopWm.png"));
     else
-        setPixmap(QPixmap(":/bishopB.png"));
+        setPixmap(QPixmap(":/bishopBm.png"));
 }
 
 void Bishop::moves()

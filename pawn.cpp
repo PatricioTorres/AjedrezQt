@@ -22,7 +22,7 @@ void Pawn::setImage()
 void Pawn::resizeImage()
 {
     if(Team == "WHITE")
-        setPixmap(QPixmap(":/pawnW.png"));
+        setPixmap(QPixmap(":/pawnWm.png"));
     else
         setPixmap(QPixmap(":/pawnBm.png"));
 }
