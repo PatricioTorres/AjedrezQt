@@ -10,6 +10,7 @@ public:
     board();
     void drawBoxes(int x, int y);
     void drawCaptureBoxes(int x, int y, bool team);
+    void drawTables();
     void addPiece();
     void setUpWhite();
     void setUpBlack();

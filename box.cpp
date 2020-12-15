@@ -127,24 +127,32 @@ void box::capturePiece(Piece *piece)
 }
 void box::movedPiece(Piece *piece, bool& capture)
 {
+    QString move{""};
+    QString separator{""};
     placePiece(piece);
     if(piece->getType() != "P")
     {
         std::cout<<piece->getType().toStdString();
+        move += piece->getType();
     }
     if(capture)
     {
         std::cout<<"x";
+        move += "x";
     }
     char col = colLoc + 97;
-    int row = 8 - rowLoc;
+    char row = 56 - rowLoc;
     std::cout<<col<<row;
+    move += col+separator+row;
+    std::cout<<move.toStdString();
     if(juego->getTurn() == "WHITE")
     {
+        juego->getTableWhite()->insert(juego->getTableWhite()->length(), move);
         std::cout<<"\t";
     }
     else
     {
+        juego->getTableBlack()->insert(juego->getTableBlack()->length(), move);
         std::cout<<std::endl;
     }
 }

@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
 #include "box.h"
+#include "moves.h"
 #include <board.h>
 #include "piece.h"
 class game:public QGraphicsView
@@ -16,6 +17,7 @@ public:
     box * collection[8][8];
     box * captureBlack[5][5];
     box * captureWhite[5][5];
+    moves* movimientos[2][2];
     void displayMainMenu();
     void drawBoard();
     void drawDeadHolder(int x, int y, int width, int height, QColor color);
@@ -27,6 +29,10 @@ public:
     QList <Piece *> alivePiece;
     board *chess;
     board *captureBox;
+    moves *textoDemo;
+    QList<QString>* getTableWhite();
+    QList<QString>* getTableBlack();
+
 
 private:
     QGraphicsScene *Scene;
@@ -34,6 +40,9 @@ private:
 
     QString turn;
     QGraphicsRectItem * deadHolder;
+    QList<QString> tableWhite;
+    QList<QString> tableBlack;
+
 
 };
 

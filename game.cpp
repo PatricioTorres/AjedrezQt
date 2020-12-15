@@ -37,11 +37,15 @@ void game::drawBoard()
     chess = new board();
     captureBox = new board();
     drawDeadHolder(0,350,300, 200, Qt::lightGray);
+    drawDeadHolder(0,0,300, 50, Qt::lightGray);
     drawDeadHolder(0,850,300, 50, Qt::lightGray);
     drawDeadHolder(1100,0, 300, 900, Qt::lightGray);
     chess->drawCaptureBoxes(0,50, true);
     chess->drawCaptureBoxes(0,550, false);
     chess->drawBoxes(width()/2 -400,50);
+    textoDemo = new moves();
+    textoDemo->draw();
+    chess->drawTables();
     std::cout<<width()<<std::endl;
 
 
@@ -68,6 +72,16 @@ void game::displayMainMenu()
 QString game::getTurn()
 {
     return turn;
+}
+
+QList<QString>* game::getTableWhite()
+{
+    return &tableWhite;
+}
+
+QList<QString>* game::getTableBlack()
+{
+    return &tableBlack;
 }
 
 void game::setTurn(QString value)

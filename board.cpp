@@ -60,7 +60,10 @@ void board::drawCaptureBoxes(int x,int y, bool team)
 
 }
 
+void board::drawTables()
+{
 
+}
 
 void board::setUpWhite()
 {
