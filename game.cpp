@@ -11,7 +11,7 @@ game::game(QWidget *parent ):QGraphicsView(parent){
     setScene(Scene);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::black);
+    brush.setColor(Qt::gray);
     setBackgroundBrush(brush);
     pieceToMove = NULL;
     turnDisplay = new QGraphicsTextItem();
@@ -40,15 +40,40 @@ void game::drawBoard()
     drawDeadHolder(0,0,300, 50, Qt::lightGray);
     drawDeadHolder(0,850,300, 50, Qt::lightGray);
     drawDeadHolder(1100,0, 300, 900, Qt::lightGray);
+    drawTable();
+
     chess->drawCaptureBoxes(0,50, true);
     chess->drawCaptureBoxes(0,550, false);
     chess->drawBoxes(width()/2 -400,50);
-    textoDemo = new moves();
-    textoDemo->draw();
+    //QString n = "hola";
+    //textoDemo = new moves(1150, 50, n);
     chess->drawTables();
     std::cout<<width()<<std::endl;
 
 
+}
+
+void game::drawTable()
+{
+    int y = 1;
+    for(int i = 0; i <7; i++, y+=50)
+    {
+        drawDeadHolder(1102,y, 146, 48, Qt::black);
+        drawDeadHolder(1252,y, 146, 48, Qt::white);
+    }
+    QString w = "WHITE";
+    titleWhite = new moves(1151, 25, w);
+    QBrush brushW;
+    brushW.setStyle(Qt::SolidPattern);
+    brushW.setColor(Qt::white);
+    titleWhite->setBrush(brushW);
+
+    QString b = "BLACK";
+    titleWhite = new moves(1301, 25, b);
+    QBrush brushB;
+    brushB.setStyle(Qt::SolidPattern);
+    brushB.setColor(Qt::black);
+    titleWhite->setBrush(brushB);
 }
 void game::drawDeadHolder(int x, int y,int width, int height,QColor color)
 {
@@ -56,6 +81,7 @@ void game::drawDeadHolder(int x, int y,int width, int height,QColor color)
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(color);
+
     deadHolder->setBrush(brush);
     addItem(deadHolder);
 }

@@ -3,13 +3,17 @@
 #include <iostream>
 
 extern game *juego;
-moves::moves(QGraphicsItem *parent):QGraphicsSimpleTextItem(parent)
+
+
+moves::moves(int x, int y, QString &text, QGraphicsItem *parent):QGraphicsSimpleTextItem(parent)
 {
-    this->setText("Aloha");
+    this->setText(text);
+    this->setPos(x,y);
+    juego->addItem(this);
 }
 
 void moves::draw()
 {
-    this->setPos(50,50);
+    this->setPos(1150,50);
     juego->addItem(this);
 }

@@ -29,15 +29,19 @@ public:
     QList <Piece *> alivePiece;
     board *chess;
     board *captureBox;
-    moves *textoDemo;
+    //moves *textoDemo;
     QList<QString>* getTableWhite();
     QList<QString>* getTableBlack();
+    void drawTable();
 
 
 private:
     QGraphicsScene *Scene;
     QGraphicsTextItem * turnDisplay;
-
+    QString* whiteTable[6];
+    moves* titleWhite;
+    moves* titleBlack;
+    QString* blackTable[6];
     QString turn;
     QGraphicsRectItem * deadHolder;
     QList<QString> tableWhite;
