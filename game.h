@@ -33,12 +33,6 @@ public:
     moves *textoDemo;
     QList<QString>* getTableWhite();
     QList<QString>* getTableBlack();
-    moves* getWhiteTable();
-    moves* getBlackTable();
-    moves* whiteTable[6];
-    moves* blackTable[6];
-    int& getNumberTurn();
-    void sumTurn();
     void drawTable();
     void setContadorB(int cont);
     int getContadorB();
@@ -47,10 +41,10 @@ public:
 private:
     QGraphicsScene *Scene;
     QGraphicsTextItem * turnDisplay;
-    int numberTurn = 0;
+    QString* whiteTable[6];
     moves* titleWhite;
     moves* titleBlack;
-
+    QString* blackTable[6];
     QString turn;
     QGraphicsRectItem * deadHolder;
     QList<QString> tableWhite;
