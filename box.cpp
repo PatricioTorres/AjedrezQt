@@ -182,28 +182,41 @@ void box::movedPiece(Piece *piece, bool& capture)
     placePiece(piece);
     if(piece->getType() != "P")
     {
-        std::cout<<piece->getType().toStdString();
         move += piece->getType();
     }
     if(capture)
     {
-        std::cout<<"x";
         move += "x";
     }
     char col = colLoc + 97;
     char row = 56 - rowLoc;
-    std::cout<<col<<row;
     move += col+separator+row;
-    std::cout<<move.toStdString();
     if(juego->getTurn() == "WHITE")
     {
         juego->getTableWhite()->insert(juego->getTableWhite()->length(), move);
-        std::cout<<"\t";
+        int tam = juego->getNumberTurn();
+        if(tam>=6)
+        {
+            delete juego->whiteTable[5];
+            delete juego->blackTable[5];
+            tam = 5;
+        }
+
+        QString textW, textB;
+        for(int i = tam; i>0; i--)
+        {
+            juego->whiteTable[i] = juego->whiteTable[i-1];
+            juego->blackTable[i] = juego->blackTable[i-1];
+            juego->whiteTable[i]->rePos(1151, 75+50*i);
+            juego->blackTable[i]->rePos(1301, 75+50*i);
+        }
+        juego->whiteTable[0] = new moves(1151, 75, move, Qt::white);
+        juego->sumTurn();
     }
     else
     {
         juego->getTableBlack()->insert(juego->getTableBlack()->length(), move);
-        std::cout<<std::endl;
+        juego->blackTable[0] = new moves(1301, 75, move, Qt::black);
     }
 }
 void box::setHasPiece(bool value, Piece *piece)
