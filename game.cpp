@@ -75,6 +75,8 @@ void game::drawTable()
     brushB.setColor(Qt::black);
     titleWhite->setBrush(brushB);
 }
+
+
 void game::drawDeadHolder(int x, int y,int width, int height,QColor color)
 {
     deadHolder = new QGraphicsRectItem(x,y,width,height);
@@ -100,6 +102,16 @@ QString game::getTurn()
     return turn;
 }
 
+int& game::getNumberTurn()
+{
+    return numberTurn;
+}
+
+void game::sumTurn()
+{
+    numberTurn++;
+}
+
 QList<QString>* game::getTableWhite()
 {
     return &tableWhite;
@@ -108,6 +120,15 @@ QList<QString>* game::getTableWhite()
 QList<QString>* game::getTableBlack()
 {
     return &tableBlack;
+}
+
+moves* game::getWhiteTable()
+{
+    return *whiteTable;
+}
+moves* game::getBlackTable()
+{
+    return *blackTable;
 }
 
 void game::setTurn(QString value)
