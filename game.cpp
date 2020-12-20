@@ -123,3 +123,9 @@ void game::changeTurn()
         setTurn("WHITE");
     turnDisplay->setPlainText("Turn : " + getTurn());
 }
+void game::setContadorB(int cont){
+    contadorB=cont;
+}
+int game::getContadorB(){
+    return contadorB++;
+}

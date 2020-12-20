@@ -10,6 +10,7 @@ class Piece:public QGraphicsPixmapItem
 {
 public:
     Piece();
+    bool isPlaced;
     Piece(QString team = "",QGraphicsItem *parent = 0);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void setCurrentBox(box *Box);
@@ -31,7 +32,7 @@ public:
 protected:
     box *currentBox;
     QString Team;
-    bool isPlaced;
+    //bool isPlaced;
     QList <box *> location;
     QString type;
 

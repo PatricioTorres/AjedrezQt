@@ -56,29 +56,79 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
                 return;
 
              juego->pieceToMove->color();
-            if(juego->pieceToMove->getBox()->getPieceColor()==  "WHITE" )
+
+             //if(juego->pieceToMove->getBox()->getPieceColor()==  "WHITE" )
 
 
              juego->pieceToMove->firstMove = false;
             bool capture = false;
+
             if(this->getHasPiece()){
-                //this->currentPiece->setIsPlaced(false);
 
-               this->currentPiece->resizeImage();
-                //las blancas en 0,1
-               juego->captureBlack[0][0]->capturePiece(this->currentPiece);
+                this->currentPiece->resizeImage();
+                 this->currentPiece->setIsPlaced(false);
+               if(this->currentPiece->getTeam()=="WHITE"){
+                    this->currentPiece->resizeImage();
+
+                  if(!(this->currentPiece->getIsPlaced())){
+                int col=5;
+
+               int i=0,j=0;
+                //posicion x inicial de la pieza
+                int xInicial=20;
+                //posicion y inicial de la pieza
+                int yInicial=60;
+                 int t=juego->getContadorB();
+
+                i=(t%col)*60;
+                j=(t/col)*60;
+                 //juego->captureBlack[i][j]->capturePiece(this->currentPiece);
+                //asignacion de posicion de la pieza
+                 this->currentPiece->setPos(i+xInicial,j+yInicial);
+
+                // this->currentPiece->~Piece();
+
+
+
+                this->currentPiece->setIsPlaced(true);
+                //la pieza a sido capturada
+
+
+               }
+
+               }
+               //las fichas cambian de tamaño para mandarlas a la otra tabla
+                //las blancas en 0,0
+
+                  //      juego->captureWhite[1][1]->capturePiece(this->currentPiece);
+                    //juego->captureWhite[1][2]->capturePiece(this->currentPiece);
+                    //juego->captureWhite[1][3]->capturePiece(this->currentPiece);
+
                //las negras se guardan en 0,2
-               if(juego->pieceToMove->getBox()->getPieceColor()==  "WHITE" ){
+               //si la siguiente pieza a mover es blanca se guarda en [0][2]
+               /* if(this->currentPiece->getTeam()=="BLACK"){
 
-               juego->captureBlack[0][2]->capturePiece(this->currentPiece);}
-                //juego->placeInDeadPlace(this->currentPiece);
-                capture = true;
+                     for(int i=0;i<5;i++){
+                         for(int j=0;j<5;j++){
+                             if(capture==false){
+                    juego->captureBlack[i][j]->capturePiece(this->currentPiece);
 
-            }
 
+                               capture=true;
+                             }
+
+                    juego->captureBlack[0][2]->getHasPiece();}}
+                 }
+                */
+
+                //capture = true;
+}
+
+              //juego->placeInDeadPlace(this->currentPiece);
             juego->pieceToMove->getCurrentBox()->setHasPiece(false);
             juego->pieceToMove->getCurrentBox()->currentPiece = NULL;
             juego->pieceToMove->getCurrentBox()->resetOriginalColor();
+
             movedPiece(juego->pieceToMove, capture);
 
             juego->pieceToMove = NULL;

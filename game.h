@@ -14,6 +14,7 @@ class game:public QGraphicsView
 public:
     game(QWidget *parent = 0);
     QGraphicsTextItem *check;
+    int contadorB=0;
     box * collection[8][8];
     box * captureBlack[5][5];
     box * captureWhite[5][5];
@@ -29,10 +30,12 @@ public:
     QList <Piece *> alivePiece;
     board *chess;
     board *captureBox;
-    //moves *textoDemo;
+    moves *textoDemo;
     QList<QString>* getTableWhite();
     QList<QString>* getTableBlack();
     void drawTable();
+    void setContadorB(int cont);
+    int getContadorB();
 
 
 private:

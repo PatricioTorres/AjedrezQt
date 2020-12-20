@@ -42,8 +42,11 @@ void board::drawCaptureBoxes(int x,int y, bool team)
         {
             box *caja = new box();
             if(team)
+                //para las piezas negras
                 juego->captureBlack[i][j] = caja;
             else
+                //para las piezas blancas
+
                 juego->captureWhite[i][j] = caja;
             caja->rowLoc = i;
             caja->colLoc = j;
