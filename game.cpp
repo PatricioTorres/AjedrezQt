@@ -150,3 +150,10 @@ void game::setContadorB(int cont){
 int game::getContadorB(){
     return contadorB++;
 }
+
+void game::setContadorW(int cont){
+    contadorW=cont;
+}
+int game::getContadorW(){
+    return contadorW++;
+}

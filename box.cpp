@@ -97,6 +97,37 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
                }
 
                }
+
+               if(this->currentPiece->getTeam()=="BLACK"){
+                    this->currentPiece->resizeImage();
+
+                  if(!(this->currentPiece->getIsPlaced())){
+                int col=5;
+
+               int K=0,M=0;
+                //posicion x inicial de la pieza
+                int xinicial=20;
+                //posicion y inicial de la pieza
+                int yinicial=560;
+                 int v=juego->getContadorW();
+
+                K=(v%col)*60;
+                M=(v/col)*60;
+                 //juego->captureBlack[i][j]->capturePiece(this->currentPiece);
+                //asignacion de posicion de la pieza
+                 this->currentPiece->setPos(K+xinicial,M+yinicial);
+
+                // this->currentPiece->~Piece();
+
+
+
+                this->currentPiece->setIsPlaced(true);
+                //la pieza a sido capturada
+
+
+               }
+
+               }
                //las fichas cambian de tamaño para mandarlas a la otra tabla
                 //las blancas en 0,0
 

@@ -15,6 +15,7 @@ public:
     game(QWidget *parent = 0);
     QGraphicsTextItem *check;
     int contadorB=0;
+    int contadorW=0;
     box * collection[8][8];
     box * captureBlack[5][5];
     box * captureWhite[5][5];
@@ -42,6 +43,10 @@ public:
     void drawTable();
     void setContadorB(int cont);
     int getContadorB();
+
+    void setContadorW(int cont);
+    int getContadorW();
+
 
 
 private:
