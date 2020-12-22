@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <QCoreApplication>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
@@ -36,8 +37,8 @@ public:
     QList<QString>* getTableBlack();
     moves* getWhiteTable();
     moves* getBlackTable();
-    moves* whiteTable[6];
-    moves* blackTable[6];
+    moves* whiteTable[9];
+    moves* blackTable[9];
     int& getNumberTurn();
     void sumTurn();
     void drawTable();

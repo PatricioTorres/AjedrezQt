@@ -56,7 +56,7 @@ void game::drawBoard()
 void game::drawTable()
 {
     int y = 1;
-    for(int i = 0; i <7; i++, y+=50)
+    for(int i = 0; i <10; i++, y+=50)
     {
         drawDeadHolder(1102,y, 146, 48, Qt::black);
         drawDeadHolder(1252,y, 146, 48, Qt::white);

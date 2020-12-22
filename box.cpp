@@ -226,14 +226,13 @@ void box::movedPiece(Piece *piece, bool& capture)
     {
         juego->getTableWhite()->insert(juego->getTableWhite()->length(), move);
         int tam = juego->getNumberTurn();
-        if(tam>=6)
+        if(tam>=9)
         {
-            delete juego->whiteTable[5];
-            delete juego->blackTable[5];
-            tam = 5;
+            delete juego->whiteTable[8];
+            delete juego->blackTable[8];
+            tam = 8;
         }
 
-        QString textW, textB;
         for(int i = tam; i>0; i--)
         {
             juego->whiteTable[i] = juego->whiteTable[i-1];
