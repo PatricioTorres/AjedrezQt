@@ -27,6 +27,7 @@ moves::moves(int x, int y, QString &text, QColor color, QGraphicsItem *parent):Q
     this->setBrush(brush);
 }
 
+
 void moves::draw()
 {
     this->setPos(1150,50);
@@ -47,4 +48,9 @@ void moves::draw()
 void moves::rePos(int x, int y)
 {
     this->setPos(x,y);
+}
+
+void moves::reText(QString &text)
+{
+    this->setText(text);
 }

@@ -30,8 +30,16 @@ game::game(QWidget *parent ):QGraphicsView(parent){
     check->setPlainText("CHECK!");
     check->setVisible(false);
     setTurn("WHITE");
-
+    QString temp{""};
+    /*QString temp = +"Black time: "+(timeBlack/60);
+    temp += +":"+(timeBlack%60);*/
+    //timeLabelBlack = new moves(1170, 640, temp);
+    /*temp = +"White time: "+(timeWhite/60);
+    temp += +":"+(timeWhite%60);*/
+    //timeLabelWhite = new moves(1170, 690, temp, Qt::black);
+    tempo1.iniciar();
 }
+
 void game::drawBoard()
 {
     chess = new board();
@@ -40,6 +48,8 @@ void game::drawBoard()
     drawDeadHolder(0,0,300, 50, Qt::lightGray);
     drawDeadHolder(0,850,300, 50, Qt::lightGray);
     drawDeadHolder(1100,0, 300, 900, Qt::lightGray);
+    drawDeadHolder(1150,615,200,50,Qt::black);
+    drawDeadHolder(1150,665,200,50,Qt::white);
     drawTable();
 
     chess->drawCaptureBoxes(0,50, true);
@@ -62,18 +72,12 @@ void game::drawTable()
         drawDeadHolder(1252,y, 146, 48, Qt::white);
     }
     QString w = "WHITE";
-    titleWhite = new moves(1151, 25, w);
-    QBrush brushW;
-    brushW.setStyle(Qt::SolidPattern);
-    brushW.setColor(Qt::white);
-    titleWhite->setBrush(brushW);
+    titleWhite = new moves(1151, 25, w, Qt::white);
 
     QString b = "BLACK";
-    titleWhite = new moves(1301, 25, b);
-    QBrush brushB;
-    brushB.setStyle(Qt::SolidPattern);
-    brushB.setColor(Qt::black);
-    titleWhite->setBrush(brushB);
+    titleWhite = new moves(1301, 25, b, Qt::black);
+    timeLabelBlack = new moves(1170, 640, b, Qt::white);
+    timeLabelWhite = new moves(1170, 690, w, Qt::black);
 }
 
 
@@ -130,6 +134,7 @@ moves* game::getBlackTable()
 {
     return *blackTable;
 }
+
 
 void game::setTurn(QString value)
 {

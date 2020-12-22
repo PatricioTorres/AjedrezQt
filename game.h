@@ -9,6 +9,8 @@
 #include "moves.h"
 #include <board.h>
 #include "piece.h"
+#include "timer.h"
+
 class game:public QGraphicsView
 {
     Q_OBJECT
@@ -39,6 +41,8 @@ public:
     moves* getBlackTable();
     moves* whiteTable[9];
     moves* blackTable[9];
+    moves* timeLabelBlack;
+    moves* timeLabelWhite;
     int& getNumberTurn();
     void sumTurn();
     void drawTable();
@@ -47,7 +51,8 @@ public:
 
     void setContadorW(int cont);
     int getContadorW();
-
+    int& getTimeBlack(){return timeBlack;};
+    int& getTimeWhite(){return timeWhite;};
 
 
 private:
@@ -57,12 +62,14 @@ private:
     moves* titleWhite;
     moves* titleBlack;
 
+
     QString turn;
     QGraphicsRectItem * deadHolder;
     QList<QString> tableWhite;
     QList<QString> tableBlack;
-
-
+    timer tempo1;
+    int timeBlack = 600;
+    int timeWhite = 600;
 };
 
 #endif // GAME_H
