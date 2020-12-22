@@ -20,7 +20,7 @@ void Piece::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
     if(this == juego->pieceToMove){
         juego->pieceToMove->getBox()->resetOriginalColor();
-        juego->pieceToMove->color(); //Reset de casillas de movimientos
+        juego->pieceToMove->color();
         juego->pieceToMove = NULL;
        return;
     }

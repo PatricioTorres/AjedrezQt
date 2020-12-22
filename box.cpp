@@ -258,7 +258,11 @@ void box::VeriCheck(){
                 else{
                     bList[j]->resetOriginalColor();
                     pList[i]->getCurrentBox()->resetOriginalColor();
-                    //aqui es cuando matan al rey
+                    if(juego->getTurn()=="WHITE"){
+                        juego->addItem(new QGraphicsPixmapItem((QPixmap(":/WinW.jpg"))));
+                    }else
+                        juego->addItem(new QGraphicsPixmapItem((QPixmap(":/WinB.png"))));
+
                 }
                 c++;
 
