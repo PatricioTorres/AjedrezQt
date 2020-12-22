@@ -116,7 +116,7 @@ void king::SafeLocation() {
                     continue;
                 for(size_t k = 0, n = location.size(); k < n; k++) {
                    if(bList[j] == location [k]) {
-                       location[k]->setColor(Qt::blue);
+                       location[k]->setColor(Qt::black);
                    }
                 }
             }

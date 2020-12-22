@@ -3,9 +3,9 @@
 
 game::game(QWidget *parent ):QGraphicsView(parent){
     Scene = new QGraphicsScene();
-    Scene->setSceneRect(0,0,1400,1000);
+    Scene->setSceneRect(0,0,1400,950);
 
-    setFixedSize(1400,970);
+    setFixedSize(1400,900);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setScene(Scene);
@@ -31,12 +31,6 @@ game::game(QWidget *parent ):QGraphicsView(parent){
     check->setVisible(false);
     setTurn("WHITE");
     QString temp{""};
-    /*QString temp = +"Black time: "+(timeBlack/60);
-    temp += +":"+(timeBlack%60);*/
-    //timeLabelBlack = new moves(1170, 640, temp);
-    /*temp = +"White time: "+(timeWhite/60);
-    temp += +":"+(timeWhite%60);*/
-    //timeLabelWhite = new moves(1170, 690, temp, Qt::black);
     tempo1.iniciar();
 }
 
@@ -55,8 +49,7 @@ void game::drawBoard()
     chess->drawCaptureBoxes(0,50, true);
     chess->drawCaptureBoxes(0,550, false);
     chess->drawBoxes(width()/2 -400,50);
-    //QString n = "hola";
-    //textoDemo = new moves(1150, 50, n);
+
     chess->drawTables();
     std::cout<<width()<<std::endl;
 

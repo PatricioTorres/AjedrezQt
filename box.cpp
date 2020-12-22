@@ -1,7 +1,7 @@
 #include "box.h"
 #include "game.h"
 #include <iostream>
-
+#include "king.h"
 extern game *juego;
 box::box(QGraphicsItem *parent):QGraphicsRectItem(parent)
 {
@@ -57,7 +57,7 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
              juego->pieceToMove->color();
 
-             //if(juego->pieceToMove->getBox()->getPieceColor()==  "WHITE" )
+
 
 
              juego->pieceToMove->firstMove = false;
@@ -82,7 +82,7 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
                 i=(t%col)*60;
                 j=(t/col)*60;
-                 //juego->captureBlack[i][j]->capturePiece(this->currentPiece);
+
                 //asignacion de posicion de la pieza
                  this->currentPiece->setPos(i+xInicial,j+yInicial);
 
@@ -92,10 +92,7 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
                 this->currentPiece->setIsPlaced(true);
                 //la pieza a sido capturada
-
-
                }
-
                }
 
                if(this->currentPiece->getTeam()=="BLACK"){
@@ -113,13 +110,9 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
                 K=(v%col)*60;
                 M=(v/col)*60;
-                 //juego->captureBlack[i][j]->capturePiece(this->currentPiece);
+
                 //asignacion de posicion de la pieza
                  this->currentPiece->setPos(K+xinicial,M+yinicial);
-
-                // this->currentPiece->~Piece();
-
-
 
                 this->currentPiece->setIsPlaced(true);
                 //la pieza a sido capturada
@@ -128,34 +121,9 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
                }
 
                }
-               //las fichas cambian de tamaño para mandarlas a la otra tabla
-                //las blancas en 0,0
-
-                  //      juego->captureWhite[1][1]->capturePiece(this->currentPiece);
-                    //juego->captureWhite[1][2]->capturePiece(this->currentPiece);
-                    //juego->captureWhite[1][3]->capturePiece(this->currentPiece);
-
-               //las negras se guardan en 0,2
-               //si la siguiente pieza a mover es blanca se guarda en [0][2]
-               /* if(this->currentPiece->getTeam()=="BLACK"){
-
-                     for(int i=0;i<5;i++){
-                         for(int j=0;j<5;j++){
-                             if(capture==false){
-                    juego->captureBlack[i][j]->capturePiece(this->currentPiece);
+         }
 
 
-                               capture=true;
-                             }
-
-                    juego->captureBlack[0][2]->getHasPiece();}}
-                 }
-                */
-
-                //capture = true;
-}
-
-              //juego->placeInDeadPlace(this->currentPiece);
             juego->pieceToMove->getCurrentBox()->setHasPiece(false);
             juego->pieceToMove->getCurrentBox()->currentPiece = NULL;
             juego->pieceToMove->getCurrentBox()->resetOriginalColor();
@@ -165,7 +133,7 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
             juego->pieceToMove = NULL;
 
             juego->changeTurn();
-            //checkForCheck();
+            VeriCheck();
         }
 
         else if(this->getHasPiece())
@@ -265,3 +233,44 @@ void Piece::color()
     }
 }
 
+void box::VeriCheck(){
+    int c = 0;
+    QList <Piece *> pList = juego->alivePiece;
+    for(size_t i = 0,n=pList.size(); i < n; i++ ) {
+
+        king * p = dynamic_cast<king *> (pList[i]);
+        if(p){
+            continue;
+        }
+        pList[i]->moves();
+        pList[i]->color();
+        QList <box *> bList = pList[i]->moveLocation();
+        for(size_t j = 0,n = bList.size(); j < n; j ++) {
+            king * p = dynamic_cast<king *> (bList[j]->currentPiece);
+            if(p) {
+                if(p->getTeam() == pList[i]->getTeam())
+                    continue;
+                bList[j]->setColor(Qt::green);
+                pList[i]->getCurrentBox()->setColor(Qt::blue);
+                if(!juego->check->isVisible()){
+                    juego->check->setVisible(true);
+                }
+                else{
+                    bList[j]->resetOriginalColor();
+                    pList[i]->getCurrentBox()->resetOriginalColor();
+                    //aqui es cuando matan al rey
+                }
+                c++;
+
+            }
+        }
+
+
+    }
+    if(!c){
+        juego->check->setVisible(false);
+        for(size_t i = 0,n=pList.size(); i < n; i++ )
+            pList[i]->getCurrentBox()->resetOriginalColor();
+    }
+
+}

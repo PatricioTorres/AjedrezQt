@@ -28,9 +28,7 @@ void Bishop::moves()
     int row = this->getCurrentBox()->rowLoc;
     int col = this->getCurrentBox()->colLoc;
     QString team = this->getTeam();
-    //For upper Left
-
-     for(int i = row-1,j = col-1; i >= 0 && j >=0; i--,j--) {
+    for(int i = row-1,j = col-1; i >= 0 && j >=0; i--,j--) {
        if(juego->collection[i][j]->getPieceColor() == team ) {
            break;
 
@@ -43,9 +41,6 @@ void Bishop::moves()
            }
        }
     }
-
-     //For upper right
-
       for(int i = row-1,j = col+1; i >= 0 && j <= 7; i--,j++) {
         if(juego->collection[i][j]->getPieceColor() == team ) {
             break;
@@ -60,8 +55,6 @@ void Bishop::moves()
         }
      }
 
-      //For downward right
-
        for(int i = row+1,j = col+1; i <= 7 && j <= 7; i++,j++) {
          if(juego->collection[i][j]->getPieceColor() == team ) {
              break;
@@ -75,8 +68,6 @@ void Bishop::moves()
              }
          }
       }
-
-       //For downward left
 
         for(int i = row+1,j = col-1; i <= 7 && j >= 0; i++,j--) {
           if(juego->collection[i][j]->getPieceColor() == team ) {

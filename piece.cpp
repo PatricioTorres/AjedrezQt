@@ -1,7 +1,7 @@
 #include "piece.h"
 #include "game.h"
 #include <QDebug>
-
+#include "king.h"
 extern game *juego;
 Piece::Piece()
 {
@@ -78,12 +78,12 @@ void Piece::setIsPlaced(bool value)
 }
 bool Piece::boxSetting(box *box)
 {
-    if(box->getHasPiece()) {/*
-        King *q = dynamic_cast<King*>(location.last()->currentPiece);
+    if(box->getHasPiece()) {
+        king *q = dynamic_cast<king*>(location.last()->currentPiece);
         if(q){
             box->setColor(Qt::blue);
         }
-        else*/
+        else
             box->setColor(Qt::red);
         return true;
     }
