@@ -30,7 +30,6 @@ game::game(QWidget *parent ):QGraphicsView(parent){
     check->setPlainText("CHECK!");
     check->setVisible(false);
     setTurn("WHITE");
-    QString temp{""};
     /*QString temp = +"Black time: "+(timeBlack/60);
     temp += +":"+(timeBlack%60);*/
     //timeLabelBlack = new moves(1170, 640, temp);
