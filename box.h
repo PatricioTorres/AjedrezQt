@@ -16,7 +16,7 @@ public:
     void setColor(QColor color);
     void resetOriginalColor();
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    Piece * currentPiece;//collection[0][0].currentPiece.getType() == "T"
+    Piece * currentPiece;
     QString getPieceColor() ;
     ~box();
     void setPieceColor(QString value);
@@ -25,7 +25,7 @@ public:
     void placePiece(Piece *piece);
     void capturePiece(Piece *piece);
     void movedPiece(Piece *piece, bool& capture);
-
+     void VeriCheck();
 private:
     QBrush brush;
     QColor originalColor;

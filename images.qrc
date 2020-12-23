@@ -24,5 +24,7 @@
         <file>queenWm.png</file>
         <file>rookBm.png</file>
         <file>rookWm.png</file>
+        <file>WinW.jpg</file>
+        <file>WinB.jpg</file>
     </qresource>
 </RCC>

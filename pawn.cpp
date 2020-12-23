@@ -54,11 +54,11 @@ void Pawn::moves()
 
     }
     else{
-        if(col > 0 && row < 7 && juego->collection[row+1][col-1]->getPieceColor() == "WHITE") {//left
+        if(col > 0 && row < 7 && juego->collection[row+1][col-1]->getPieceColor() == "WHITE") {
             location.append(juego->collection[row+1][col-1]);
             boxSetting(location.last());
         }
-        if(col < 7 && row <  7 && juego->collection[row+1][col+1]->getPieceColor() == "WHITE") {//right
+        if(col < 7 && row <  7 && juego->collection[row+1][col+1]->getPieceColor() == "WHITE") {
             location.append(juego->collection[row+1][col+1]);
             boxSetting(location.last());
         }

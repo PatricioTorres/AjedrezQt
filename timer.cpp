@@ -29,7 +29,7 @@ void timer::onTimeOut()
         out += refactor(time%60);
         time--;
         juego->timeLabelBlack->reText(out);
-        qDebug()<<out;
+
     }
     else
     {
@@ -40,7 +40,7 @@ void timer::onTimeOut()
         out += refactor(time%60);
         time--;
         juego->timeLabelWhite->reText(out);
-        qDebug()<<out;
+
     }
 }
 

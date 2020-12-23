@@ -34,17 +34,6 @@ void moves::draw()
     juego->addItem(this);
 }
 
-/*moves& moves::operator = (const moves &m)
-{
-    if(this!=&m)
-    {
-        this->rowLoc = m.rowLoc;
-        this->colLoc = m.colLoc;
-        this->setText(m.text());
-    }
-    return *this;
-}*/
-
 void moves::rePos(int x, int y)
 {
     this->setPos(x,y);
