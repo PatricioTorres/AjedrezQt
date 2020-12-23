@@ -26,5 +26,7 @@
         <file>rookWm.png</file>
         <file>WinW.jpg</file>
         <file>WinB.jpg</file>
+        <file>TimeA.png</file>
+        <file>TimeB.png</file>
     </qresource>
 </RCC>

@@ -27,8 +27,14 @@ void timer::onTimeOut()
         out += refactor(time/60);
         out += ":";
         out += refactor(time%60);
-        time--;
-        juego->timeLabelBlack->reText(out);
+
+        if(time == 0)
+            juego->addItem(new QGraphicsPixmapItem((QPixmap(":/TimeB.png"))));
+        else
+        {
+            time--;
+            juego->timeLabelBlack->reText(out);
+        }
 
     }
     else
@@ -38,8 +44,14 @@ void timer::onTimeOut()
         out += refactor(time/60);
         out += ":";
         out += refactor(time%60);
-        time--;
-        juego->timeLabelWhite->reText(out);
+
+        if(time==0)
+            juego->addItem(new QGraphicsPixmapItem((QPixmap(":/TimeW,png"))));
+        else
+        {
+            time--;
+            juego->timeLabelWhite->reText(out);
+        }
 
     }
 }
